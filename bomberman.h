@@ -19,5 +19,6 @@ int plateau[LIGNES][COLONNES];
 
 // Prototypes de fonctions :
 void afficher_plateau(int tableau[LIGNES][COLONNES]);
+void placementJoueur();
 
 #endif // BOMBERMAN_H_INCLUDED

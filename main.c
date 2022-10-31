@@ -15,23 +15,6 @@ int main()
 
     int plateau[LIGNES][COLONNES];
 
-    int randomLigne;
-    int randomColonne;
-
-    //placer le joueur à un endroit aléatoire
-    srand(time(NULL));
-    randomLigne = rand()%LIGNES;
-    randomColonne = rand()%COLONNES;
-
-    //test des coordonnées : pas sur un mur :
-    while (plateau[randomLigne][randomColonne] == "#"){
-        srand(time(NULL));
-        randomLigne = rand()%LIGNES;
-        randomColonne = rand()%COLONNES;
-    }
-
-    plateau[randomLigne][randomColonne]="B";
-
     afficher_plateau(plateau);
 
     return 0;
