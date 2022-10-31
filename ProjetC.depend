@@ -1,14 +1,16 @@
 # depslib dependency file v1.0
-1667214579 source:c:\users\valentine\documents\cours\ensem\2a\c\projetc\foncions.c
+1667236831 source:c:\users\valentine\documents\cours\ensem\2a\c\projetc\foncions.c
 	"bomberman.h"
 
-1667215702 c:\users\valentine\documents\cours\ensem\2a\c\projetc\bomberman.h
+1667237319 c:\users\valentine\documents\cours\ensem\2a\c\projetc\bomberman.h
 	<stdio.h>
 	<stdlib.h>
 
-1667222451 source:c:\users\valentine\documents\cours\ensem\2a\c\projetc\main.c
+1667239647 source:c:\users\valentine\documents\cours\ensem\2a\c\projetc\main.c
 	<stdio.h>
 	<stdlib.h>
+	<time.h>
+	<stdbool.h>
 	"bomberman.h"
 
 1667156389 c:\users\valentine\documents\cours\ensem\2a\c\projetc\foncions.c
