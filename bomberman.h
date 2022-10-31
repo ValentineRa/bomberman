@@ -14,11 +14,8 @@ typedef struct {
   char pseudo[20];
 }joueur;
 
-
-int plateau[LIGNES][COLONNES];
-
 // Prototypes de fonctions :
-void afficher_plateau(int tableau[LIGNES][COLONNES]);
-void placementJoueur();
+void afficher_plateau(void);
+void placementJoueur(void);
 
 #endif // BOMBERMAN_H_INCLUDED

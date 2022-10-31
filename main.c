@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
 
 #include "bomberman.h"
 
-int main()
+int main(void)
 {
+    srand(time(NULL));
     joueur joueur1 , joueur2; //initialisation des deux joueurs
 
     printf("nom du joueur1 : ");
@@ -13,9 +16,7 @@ int main()
     printf("\n nom du joueur2 : ");
     fgets(joueur2.pseudo, 20, stdin);   //demande le nom du joueur2
 
-    int plateau[LIGNES][COLONNES];
-
-    afficher_plateau(plateau);
+    afficher_plateau();
 
     return 0;
 }
