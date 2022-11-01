@@ -22,13 +22,13 @@ static char plateau[LIGNES][COLONNES] = {
 int main(void)
 {
     srand(time(NULL));
-    joueur joueur1 , joueur2; //initialisation des deux joueurs
+    //joueur joueur1 , joueur2; //initialisation des deux joueurs
 
-    printf("nom du joueur1 : ");
-    fgets(joueur1.pseudo, 20, stdin);   //demande le nom du joueur1
+    //printf("nom du joueur1 : ");
+   // fgets(joueur1.pseudo, 20, stdin);   //demande le nom du joueur1
 
-    printf("\n nom du joueur2 : ");
-    fgets(joueur2.pseudo, 20, stdin);   //demande le nom du joueur2
+    //printf("\n nom du joueur2 : ");
+    //fgets(joueur2.pseudo, 20, stdin);   //demande le nom du joueur2
 
     //test des coordonn�es pour le premier placement :
 
