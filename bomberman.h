@@ -10,10 +10,10 @@
 #define TRUE 256
 #define FALSE 0
 
-#define HAUT 0x48
-#define BAS 50
-#define DROITE 4D
-#define GAUCHE 4B
+#define HAUT 273
+#define BAS 274
+#define DROITE 275
+#define GAUCHE 276
 
 typedef struct {
   char pseudo[20];
@@ -21,8 +21,8 @@ typedef struct {
 }joueur;
 
 // Prototypes de fonctions :
-void afficher_plateau(void);
-void placementJoueur(void);
+void afficher_plateau(char plateau[LIGNES][COLONNES]);
+void deplacementJoueur(char plateau[LIGNES][COLONNES],int ligne, int colonne);
 int placeLibre(char plateau[LIGNES][COLONNES], int ligne, int colonne);
 
 #endif // BOMBERMAN_H_INCLUDED

@@ -1,73 +1,39 @@
 #include "bomberman.h"
 
-static char plateau[LIGNES][COLONNES] = {
-	{'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'},
-	{'#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#'},
-	{'#',' ','#','#',' ','#',' ',' ','#',' ','#','#','#',' ','#','#',' ','#',' ',' ',' ','#',' ','#'},
-	{'#',' ','#',' ',' ','#','#',' ','#',' ','#',' ',' ',' ','#',' ',' ','#','#',' ','#','#',' ','#'},
-	{' ',' ','#','#',' ','#',' ','#','#',' ','#','#','#',' ','#','#',' ','#',' ','#',' ','#',' ',' '},
-	{'#',' ','#',' ',' ','#',' ',' ','#',' ',' ',' ','#',' ','#',' ',' ','#',' ',' ',' ','#',' ','#'},
-	{'#',' ','#','#',' ','#',' ',' ','#',' ','#','#','#',' ','#','#',' ','#',' ',' ',' ','#',' ','#'},
-	{'#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#'},
-	{'#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#'},
-	{'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'},
-};
-
-void placementJoueur(void){
-	int randomLigne;
-	int randomColonne;
-
-	//test des coordonnées pour le premier placement :
-	do{
-		randomLigne = rand()%LIGNES;
-		randomColonne = rand()%COLONNES;
-	}//while (plateau[randomLigne][randomColonne] != ' ');
-	while (!placeLibre(plateau[LIGNES][COLONNES], randomLigne, randomColonne));
-
-	plateau[randomLigne][randomColonne]='B';
-    char placement = plateau[randomLigne][randomColonne];
-    //printf("plateau 0,0 %c", plateau[0][0]);
-	printf("plateau alea %c", placement);
-    printf("plateau alea %c", plateau[randomLigne][randomColonne]);
-	printf("\n");
-
-/*
+void deplacementJoueur(char plateau[LIGNES][COLONNES], int ligne, int colonne){
 
 	//déplacement du joueur
 	int dir;
 	do{
 		dir=getch();
+		plateau[ligne][colonne] = ' ';
 		if (dir == 'HAUT'){
-		    if (placeLibre(plateau[LIGNES][COLONNES], randomLigne - 1, randomColonne)){
-                placement = plateau[randomLigne - 1][randomColonne];
-                plateau[randomLigne][randomColonne]=' ';
+		    if (placeLibre(plateau, ligne - 1, ligne)){
+                ligne = ligne - 1;
 		    }
 		}
 		else if (dir == 'BAS'){
-		    if (placeLibre(plateau[LIGNES][COLONNES], randomLigne + 1, randomColonne)){
-                placement = plateau[randomLigne + 1][randomColonne];
-                plateau[randomLigne][randomColonne]=' ';
+		    if (placeLibre(plateau, ligne + 1, colonne)){
+                ligne = ligne + 1;
 		    }
 		}
 		else if (dir == 'DROITE'){
-		    if (placeLibre(plateau[LIGNES][COLONNES], randomLigne, randomColonne + 1)){
-                placement = plateau[randomLigne][randomColonne + 1];
-                plateau[randomLigne][randomColonne]=' ';
+		    if (placeLibre(plateau, ligne, colonne + 1)){
+                colonne = colonne + 1;
 		    }
 		}
 		else if (dir == 'GAUCHE'){
-		    if (placeLibre(plateau[LIGNES][COLONNES], randomLigne, randomColonne - 1)){
-                placement = plateau[randomLigne][randomColonne - 1];
-                plateau[randomLigne][randomColonne]=' ';
+		    if (placeLibre(plateau, ligne, colonne - 1)){
+                colonne = colonne - 1;
 		    }
 		}
-        }while(dir=='HAUT' || dir=='BAS' || dir=='DROITE' || dir=='GAUCHE');*/
+		plateau[ligne][colonne] = 'B';
+		afficher_plateau(plateau);
+        }while(dir=='HAUT' || dir=='BAS' || dir=='DROITE' || dir=='GAUCHE');
 }
 
 
-void afficher_plateau(void){
-	//ligne du haut du contour du labyrinthe
-	placementJoueur();
+void afficher_plateau(char plateau[LIGNES][COLONNES]){
 
 	for (size_t i = 0; i < LIGNES; i++)
 	{
@@ -82,17 +48,10 @@ void afficher_plateau(void){
 }
 
 int placeLibre(char plateau[LIGNES][COLONNES], int ligne, int colonne){
-    printf("coucou");
-    printf("plateau 0,0 %c", plateau[0][0]);
-    printf("ligne %d ", ligne);
-    printf("colonne %d ", colonne);
-    char t = plateau[ligne][colonne];
-    printf("plateau : %c", t);
-    if (plateau[ligne][colonne] == "#"){
-        printf("false");
-        return FALSE;
+    int d = 0;
+    if (plateau[ligne][colonne] == " "){
+        d = 1;
+        return d;
     }
-    printf("true");
-    return TRUE;
+    return d;
 }
-
