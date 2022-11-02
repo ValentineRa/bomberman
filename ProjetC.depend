@@ -2,11 +2,12 @@
 1667382225 source:c:\users\valentine\documents\cours\ensem\2a\c\projetc\foncions.c
 	"bomberman.h"
 
-1667379843 c:\users\valentine\documents\cours\ensem\2a\c\projetc\bomberman.h
+1667388528 c:\users\valentine\documents\cours\ensem\2a\c\projetc\bomberman.h
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	<time.h>
+	<pthread.h>
 
 1667382301 source:c:\users\valentine\documents\cours\ensem\2a\c\projetc\main.c
 	<stdio.h>

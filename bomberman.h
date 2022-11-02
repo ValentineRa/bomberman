@@ -23,7 +23,6 @@
 
 typedef struct {
   char pseudo[20];
-
 }joueur;
 
 // Prototypes de fonctions :
@@ -32,6 +31,6 @@ void deplacementDesDeuxJoueurs(char plateau[LIGNES][COLONNES]);
 void terrain(char plateau[LIGNES][COLONNES], int nombre);
 int placeLibre(char plateau[LIGNES][COLONNES], int ligne, int colonne);
 int bombe(char plateau[LIGNES][COLONNES], int ligne, int colonne, int nombre);
-int score (int nombre, nbBombeUtilise, nbObExplose);
+int score (int nombre, int nbBombeUtilise, int nbObExplose);
 
 #endif // BOMBERMAN_H_INCLUDED

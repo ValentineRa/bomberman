@@ -58,7 +58,7 @@ void deplacementDesDeuxJoueurs(char plateau[LIGNES][COLONNES]){
                 bombeUtilise = bombeUtilise + 1;
 
                 a = score(n, bombeUtilise, bombeExplose);
-                printf("Le nouveau score est de : %d pour %c", a, pseudo.joueur1);
+                //printf("Le nouveau score est de : %d pour %c", a, joueur1.pseudo);
                 printf("\n");
 
             }
@@ -79,7 +79,7 @@ void deplacementDesDeuxJoueurs(char plateau[LIGNES][COLONNES]){
                 bombeUtilise2 = bombeUtilise2 + 1;
 
                 c = score(n, bombeUtilise2, bombeExplose2);
-                printf("Le nouveau score est de : %d pour %c", c, pseudo.joueur2);
+                //printf("Le nouveau score est de : %d pour %c", c, joueur2.pseudo);
                 printf("\n");
             }
 
@@ -199,7 +199,7 @@ void terrain(char plateau[LIGNES][COLONNES], int nombre){
 
 int bombe(char plateau[LIGNES][COLONNES], int ligne, int colonne, int nombre){
     int secondes;
-    n = 0; //nombre de bombes qui vont exploser ce tour
+    int n = 0; //nombre de bombes qui vont exploser ce tour
 
     time_t begin = time( NULL );
     do {
@@ -229,6 +229,6 @@ int bombe(char plateau[LIGNES][COLONNES], int ligne, int colonne, int nombre){
     return n;
 }
 
-int score (int nombre, nbBombeUtilise, nbObExplose){
+int score (int nombre, int nbBombeUtilise, int nbObExplose){
     return nbObExplose / (nbBombeUtilise * nombre);
 }
