@@ -114,3 +114,88 @@ int bombe(char plateau[LIGNES][COLONNES], int ligne, int colonne, int nombre){
     return n;
 }
 
+
+
+
+#include <stdlib.h>
+
+struct bombe
+{
+	time_t start;
+	size_t must_explose_in;
+	struct bombe *next;
+};
+
+struct bombe *bombe_new(struct bombe*bombes, size_t time)
+{
+	struct bombe *bombe = calloc(1, sizeof(struct bombe));
+	if (!bombe)
+		return NULL;
+
+	bombe->start = time(NULL);
+	bombe->must_explose_in = time;
+
+	if (bombes)
+	{
+		struct bombe *next = bombes;
+		while(next->next)
+		{
+			next = next->next;
+		}
+		next->next = bombe;
+		return bombes;
+	}
+	return bombe;
+}
+
+void check_bombes(struct bombe *bombes)
+{
+	struct bombe *prev = NULL;
+	struct bombe *current = bombes;
+	while (current)
+	{
+		if (difftime(bombe->start, time(NULL)) >= current->must_explose_in)
+		{
+			//On fait exploser la bombe
+			//Tu fais ton impacte sur la map
+			
+			(*bombes).start;
+			bombes->start;
+			
+			if (prev)
+				prev->next = current->next;		
+			struct bombe *tmp = current;
+			current = current->next;
+
+			free(tmp);
+			continue;
+		}
+
+		prev = current;
+		current = current->next;
+	}
+}
+
+int demo(void)
+{
+	struct bombe *bombes = NULL;
+	while (1)
+	{
+		//check deplacement du joueur 1
+		//Si bombe posée
+		struct bombes *tmp = bombe_new(bombes, 5);
+		if (tmp)
+			bombes = tmp;
+		
+		//check deplacement du joueur 2
+		//Si bombe posée
+		struct bombes *tmp = bombe_new(bombes, 4);
+		if (tmp)
+			bombes = tmp;
+
+		//Verification des bombes
+		check_bombes(bombes);
+	}
+}
+
+
